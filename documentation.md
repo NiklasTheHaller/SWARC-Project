@@ -14,3 +14,8 @@
 
 **Stakeholders**
 
+| Role/name    | Expectations |
+| -------- | ------- |
+| User (18-25 yo)  | View, share and interact with posts and other users    |
+| February | $80     |
+| March    | $420    |
