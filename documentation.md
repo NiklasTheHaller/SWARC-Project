@@ -11,3 +11,6 @@
 - Commenting, Liking, Saving posts, Hashtags 
 - User generated Challenges & Competitions 
 - Free (limited) & Subscription based versions
+
+**Stakeholders**
+
