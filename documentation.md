@@ -16,6 +16,17 @@
 
 | Role/name    | Expectations |
 | -------- | ------- |
-| User (18-25 yo)  | View, share and interact with posts and other users    |
-| February | $80     |
-| March    | $420    |
+| User (18-25 yo)  | View, share and interact with posts and other users   |
+|Content Creator|Upload, edit photos to the app. Build a following|
+|Advertisers|Advertise their product to a wide audience|
+|Client|Have a successful and functional app with many user & creators|
+|Investors|Platform growth. Return on investment|
+
+**Quality Goals**
+
+
+| Priority | Quality| Motivation | 
+| -------- | ------- |-------|
+|1|Meets Security and Privacy regulations||
+|2|||
+|3|||
