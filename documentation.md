@@ -27,6 +27,6 @@
 
 | Priority | Quality| Motivation | 
 | -------- | ------- |-------|
-|1|Meets Security and Privacy regulations||
-|2|||
-|3|||
+|1|Meets Security and Privacy regulations|Keeping user’s data safe|
+|2|IOS & Android availability|Largest possible target audience|
+|3|No downtime - 24/7 availability|Enhance user experience.|
