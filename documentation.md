@@ -90,7 +90,22 @@
 |---|---|
 |Development costs|Microservices require a large team of developers to maintain, update and build the system|
 |Data consistency|Microservices need to handle data independently which can lead to inconsistencies|
-|Documentation|Each service requires its documentation, which can be a lot of work to update and maintain|
+|Versioning|Microservices come with complex versioning due to all of the services, which can be a lot of work to update and maintain|
 
+<div class="formalpara-title">
 
+**Architecture Constraints**
 
+</div>
+
+|Constraints|Background and/or motivation|
+|---|---|
+|Data Consistency|Multiple databases have to be deployed, data might need to be sended between microservices|
+|Security & Data Protection|Authorization and Authentification must be secure and can't be intercepted|
+|Memory Friendly|The application cannot be too large|
+|Deployable to IOS and Android|Wide Target audience|
+|Resilient|A failure of one service should have minimal impact on other services|
+
+**Context**
+
+<img src="/assets/img/MarineGEO_logo.png">
