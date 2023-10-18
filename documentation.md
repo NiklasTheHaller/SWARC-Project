@@ -108,4 +108,5 @@
 
 **Context**
 
-<img src="/assets/img/MarineGEO_logo.png">
+
+![Alt text](PictureIt.drawio.png)
