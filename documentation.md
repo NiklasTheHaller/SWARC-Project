@@ -110,3 +110,28 @@
 
 
 ![Alt text](PictureIt.drawio.png)
+
+# Crosscutting Concepts
+
+**Crosscutting Concepts**
+
+-Development concepts
+
+•Coding conventions (For easier and better documentation, easier to understand code)
+
+•Error logs (For error fixing)
+
+-Architecture and design patterns
+•Internationalization (App must be accessible and user-friendly to a global audience, right to left capability)
+
+-Safety and security concepts
+•Privacy (location, email, passwords, real names)
+
+
+**Decisions**
+
+|Context|Decision|COnsequence|
+|---|---|---|
+|Privacy|We will never store unencrypted userdata (passwords, location data, email, names)|A specific encryption must be used globally (hashes, etc), encryption will require time & resources|
+|Retries and Timeout Strategy|We will address network failures by retrying service calls and implementing timeout strategies|Additional work must be done to implement these services|
+|Database design|We will use a specific database language|We will have to implement our databases using only one language (PreSQL, Postgre, etc.)|
