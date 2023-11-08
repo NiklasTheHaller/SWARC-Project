@@ -135,3 +135,19 @@
 |Privacy|We will never store unencrypted userdata (passwords, location data, email, names)|A specific encryption must be used globally (hashes, etc), encryption will require time & resources|
 |Retries and Timeout Strategy|We will address network failures by retrying service calls and implementing timeout strategies|Additional work must be done to implement these services|
 |Database design|We will use a specific database language|We will have to implement our databases using only one language (PreSQL, Postgre, etc.)|
+
+
+# Quality
+
+**Quality goals & Scenarios**
+Goal – Efficiency – Time behavior 
+- A user uploads an image with an average internet connection. The post should be available within 2-4 seconds. 
+Goal – Functionality - Security 
+- A user creates an account, their user data is encrypted before being sent to the server and should not be accessed/decrypted by an outside attacker. 
+Goal – Maintainability - Changeability 
+- When there is an update to the third party Pixlr app. Developers must implement and update PictureIt within 3 hours.
+
+
+**Quality Tree**
+
+![Alt text](<SWARQ - Quality.png>)
