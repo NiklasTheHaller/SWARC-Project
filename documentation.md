@@ -145,7 +145,7 @@ Goal – Efficiency – Time behavior
 - A user uploads an image with an average internet connection. The post should be available within 2-4 seconds. 
 
 Goal – Functionality - Security 
-- A user creates an account, their user data is encrypted before being sent to the server and should not be accessed/decrypted by an outside attacker. 
+- A user creates an account, their user data is encrypted using at least AES 256bit encryption before being sent to the server and should not be accessed/decrypted by an outside attacker. 
 
 Goal – Maintainability - Changeability 
 - When there is an update to the third party Pixlr app. Developers must implement and update PictureIt within 3 hours.
@@ -153,4 +153,4 @@ Goal – Maintainability - Changeability
 
 **Quality Tree**
 
-![!\[!\\[Alt text\\](<SWARQ - Quality.png>)\](<SWARQ - Quality.jpg>)](<SWARQ - Quality (1).jpg>)
+![!\[!\\[!\\\[Alt text\\\](<SWARQ - Quality.png>)\\](<SWARQ - Quality.jpg>)\](<SWARQ - Quality (1).jpg>)](<SWARQ - Quality (3).jpg>)
