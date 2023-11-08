@@ -153,4 +153,4 @@ Goal – Maintainability - Changeability
 
 **Quality Tree**
 
-![!\[Alt text\](<SWARQ - Quality.png>)](<SWARQ - Quality.jpg>)
+![!\[!\\[Alt text\\](<SWARQ - Quality.png>)\](<SWARQ - Quality.jpg>)](<SWARQ - Quality (1).jpg>)
