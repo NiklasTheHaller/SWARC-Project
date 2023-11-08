@@ -140,6 +140,7 @@
 # Quality
 
 **Quality goals & Scenarios**
+
 Goal – Efficiency – Time behavior 
 - A user uploads an image with an average internet connection. The post should be available within 2-4 seconds. 
 Goal – Functionality - Security 
