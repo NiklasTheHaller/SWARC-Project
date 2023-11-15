@@ -154,3 +154,14 @@ Goal – Maintainability - Changeability
 **Quality Tree**
 
 ![!\[!\\[!\\\[Alt text\\\](<SWARQ - Quality.png>)\\](<SWARQ - Quality.jpg>)\](<SWARQ - Quality (1).jpg>)](<SWARQ - Quality (3).jpg>)
+
+# Building Block View
+
+**Level 1**
+![Alt text](<images/Ohne Titel.drawio.png>)
+
+**Level 2**
+![Alt text](images/SWARC-Level2.drawio.png)
+
+**Level 3**
+![Alt text](images/swarc-level3.drawio.png)
