@@ -165,3 +165,15 @@ Goal – Maintainability - Changeability
 
 **Level 3**
 ![Alt text](images/swarc-level3.drawio.png)
+
+
+# Runtime View
+**Sequence Diagram**
+
+**Edit Photo**
+![Alt text](image-1.png)
+
+
+**Send Message**
+
+![Alt text](sequenzdiagram1.jpg)
