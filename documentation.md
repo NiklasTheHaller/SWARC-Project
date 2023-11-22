@@ -174,6 +174,6 @@ Goal – Maintainability - Changeability
 ![Alt text](image-1.png)
 
 
-**Send Message**
+**Post Photo**
 
-![Alt text](sequenzdiagram1.jpg)
+![Alt text](sequenzdiagramm.jpg)
