@@ -177,3 +177,17 @@ Goal – Maintainability - Changeability
 **Post Photo**
 
 ![Alt text](sequenzdiagramm.jpg)
+
+# Deployment View
+
+**CAP Theorem**
+
+**Consistency: This means that all nodes see the same data at the same time. In the context of PictureIt, consistency would mean that when a user posts a picture or makes a comment, all other users should be able to see that update immediately. However, due to the use of microservices and potential for multiple databases, there might be a risk of inconsistencies.**
+
+**Availability: This means that every request receives a response, without guarantee that it contains the most recent version of the information. PictureIt aims for 24/7 availability, which is a key requirement for any social media application.**
+
+**Partition Tolerance: This means that the system continues to operate despite arbitrary partitioning due to network failures. Given that PictureIt is a global application, it must be able to handle network partitions effectively.**
+
+**PictureIt prioritizes Availability (A) and Partition Tolerance (P). It’s more important that the service remains available and can handle network issues, even if it means some users might not see the most up-to-date data immediately.**
+
+![Alt text](<DeploymentView (1).jpeg>)
