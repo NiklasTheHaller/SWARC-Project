@@ -1,14 +1,8 @@
-# 
-**Documentation for PictureIt**
+# **Documentation for PictureIt**
 
-
-# Introduction & Goals
-
-<div  class="formalpara-title">
+# 1. Introduction & Goals
 
 **Requirements Overview**
-
-</div>
 
 - Posting & Viewing high quality images
 - Customizable filters & Advanced editing tools with Pixlr integration 
@@ -16,13 +10,7 @@
 - User generated Challenges & Competitions 
 - Free (limited) & Subscription based versions
 
-
-
-<div  class="formalpara-title">
-
 **Stakeholders**
-
-</div>
 
 | Role/name    | Expectations |
 | -------- | ------- |
@@ -32,13 +20,7 @@
 |Client|Have a successful and functional app with many user & creators|
 |Investors|Platform growth. Return on investment|
 
-
-
-<div  class="formalpara-title">
-
 **Quality Goals**
-
-</div>
 
 | Priority | Quality| Motivation | 
 | -------- | ------- |-------|
@@ -46,57 +28,7 @@
 |2|IOS & Android availability|Largest possible target audience|
 |3|No downtime - 24/7 availability|Enhance user experience.|
 
-
-
-
-# Solutions, Decisions and Risks
-
-<div  class="formalpara-title">
-
-**Solutions Strategy**
-
-</div>
-
-|Goal/Requirement|Architectural Approach|
-|----------------|----------------------|
-|Image Sharing/Posting|Microservice|
-|Image editing / filters / third party integration of pixlr|Microservice|
-|Discovery algorithm (hashtags, likes, comments)|Microservice|
-
-
-
-
-<div  class="formalpara-title">
-
-**Architecture Decisions**
-
-</div>
-
-|Problem|Considered Alternatives|Decision|
-|---|---|---|
-|Users want to post pictures in real time (1-2 seconds)|SOA: adaptive and flexible. Simpler implementation.|Microservices: SOA has issues with a sudden surge of users, we need a reliable and quick solution|
-|Users want to see relevant posts|SOA: Algorithm can be updated and change without affecting the correct functioning of other services.|Microservices: Algorithm needs to quickly and dynamically adjust to user preferences through interactions (likes, comments, etc.)|
-|User wants to see before & after versions of edited pictures|SOA: Saves images to database and exchanges requested data with user interface and third party services|Microservices: SOA would require many interactions with the database and be unresponsive|
-
-
-
-<div class="formalpara-title">
-
-**Risks and Technical Debt**
-
-</div>
-
-|Risk/Technical Debt|Description|
-|---|---|
-|Development costs|Microservices require a large team of developers to maintain, update and build the system|
-|Data consistency|Microservices need to handle data independently which can lead to inconsistencies|
-|Versioning|Microservices come with complex versioning due to all of the services, which can be a lot of work to update and maintain|
-
-<div class="formalpara-title">
-
-**Architecture Constraints**
-
-</div>
+# 2. **Architecture Constraints**
 
 |Constraints|Background and/or motivation|
 |---|---|
@@ -106,12 +38,56 @@
 |Deployable to IOS and Android|Wide Target audience|
 |Resilient|A failure of one service should have minimal impact on other services|
 
-**Context**
-
+# 3. **Context & Scope**
 
 ![Alt text](PictureIt.drawio.png)
 
-# Crosscutting Concepts
+# 4. Solutions, Decisions and Risks
+
+**Solutions Strategy**
+
+|Goal/Requirement|Architectural Approach|
+|----------------|----------------------|
+|Image Sharing/Posting|Microservice|
+|Image editing / filters / third party integration of pixlr|Microservice|
+|Discovery algorithm (hashtags, likes, comments)|Microservice|
+
+# 5. Building Block View
+
+**Level 1**
+![Alt text](<images/Ohne Titel.drawio.png>)
+
+**Level 2**
+![Alt text](images/SWARC-Level2.drawio.png)
+
+**Level 3**
+![Alt text](images/swarc-level3.drawio.png)
+
+# 6. Runtime View
+**Sequence Diagram**
+
+**Edit Photo**
+![Alt text](image-1.png)
+
+**Post Photo**
+
+![Alt text](sequenzdiagramm.jpg)
+
+# 7. Deployment View
+
+**CAP Theorem**
+
+**Consistency: This means that all nodes see the same data at the same time. In the context of PictureIt, consistency would mean that when a user posts a picture or makes a comment, all other users should be able to see that update immediately. However, due to the use of microservices and potential for multiple databases, there might be a risk of inconsistencies.**
+
+**Availability: This means that every request receives a response, without guarantee that it contains the most recent version of the information. PictureIt aims for 24/7 availability, which is a key requirement for any social media application.**
+
+**Partition Tolerance: This means that the system continues to operate despite arbitrary partitioning due to network failures. Given that PictureIt is a global application, it must be able to handle network partitions effectively.**
+
+**PictureIt prioritizes Availability (A) and Partition Tolerance (P). It’s more important that the service remains available and can handle network issues, even if it means some users might not see the most up-to-date data immediately.**
+
+![Alt text](<DeploymentView (1).jpeg>)
+
+# 8. Crosscutting Concepts
 
 **Crosscutting Concepts**
 
@@ -127,17 +103,23 @@
 -Safety and security concepts
 •Privacy (location, email, passwords, real names)
 
-
 **Decisions**
 
-|Context|Decision|COnsequence|
+|Context|Decision|Consequence|
 |---|---|---|
 |Privacy|We will never store unencrypted userdata (passwords, location data, email, names)|A specific encryption must be used globally (hashes, etc), encryption will require time & resources|
 |Retries and Timeout Strategy|We will address network failures by retrying service calls and implementing timeout strategies|Additional work must be done to implement these services|
 |Database design|We will use a specific database language|We will have to implement our databases using only one language (PreSQL, Postgre, etc.)|
 
+# 9. **Architecture Decisions**
 
-# Quality
+|Problem|Considered Alternatives|Decision|
+|---|---|---|
+|Users want to post pictures in real time (1-2 seconds)|SOA: adaptive and flexible. Simpler implementation.|Microservices: SOA has issues with a sudden surge of users, we need a reliable and quick solution|
+|Users want to see relevant posts|SOA: Algorithm can be updated and change without affecting the correct functioning of other services.|Microservices: Algorithm needs to quickly and dynamically adjust to user preferences through interactions (likes, comments, etc.)|
+|User wants to see before & after versions of edited pictures|SOA: Saves images to database and exchanges requested data with user interface and third party services|Microservices: SOA would require many interactions with the database and be unresponsive|
+
+# 10. Quality Requirements
 
 **Quality goals & Scenarios**
 
@@ -155,39 +137,42 @@ Goal – Maintainability - Changeability
 
 ![!\[!\\[!\\\[Alt text\\\](<SWARQ - Quality.png>)\\](<SWARQ - Quality.jpg>)\](<SWARQ - Quality (1).jpg>)](<SWARQ - Quality (3).jpg>)
 
-# Building Block View
+# 11. **Risks and Technical Debt**
 
-**Level 1**
-![Alt text](<images/Ohne Titel.drawio.png>)
+|Risk/Technical Debt|Description|
+|---|---|
+|Development costs|Microservices require a large team of developers to maintain, update and build the system|
+|Data consistency|Microservices need to handle data independently which can lead to inconsistencies|
+|Versioning|Microservices come with complex versioning due to all of the services, which can be a lot of work to update and maintain|
 
-**Level 2**
-![Alt text](images/SWARC-Level2.drawio.png)
+# **Glossary**
 
-**Level 3**
-![Alt text](images/swarc-level3.drawio.png)
+- Pixlr Integration: Pixlr is a cloud-based set of image tools and utilities, including a number of photo editors, a screen recorder browser extension, and a photo sharing service. In the context of PictureIt, Pixlr integration refers to the incorporation of Pixlr’s advanced editing tools into the PictureIt app.
 
+- User generated Challenges & Competitions: These are contests or competitions created by users of the PictureIt app. They can be based on different themes or concepts and allow users to engage with each other by participating in these challenges.
 
-# Runtime View
-**Sequence Diagram**
+- Microservices: Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are highly maintainable and testable, loosely coupled, independently deployable, organized around business capabilities, and owned by a small team.
 
-**Edit Photo**
-![Alt text](image-1.png)
+- SOA: SOA stands for Service-Oriented Architecture. It is a style of software design where services are provided to the other components by application components, through a communication protocol over a network. The basic principles of service-oriented architecture are independent of vendors, products, and technologies.
 
+- Data Consistency: This refers to the requirement that data must be consistent across all databases and microservices in the PictureIt app. This means that all users should see the same data at the same time.
 
-**Post Photo**
+- CAP Theorem: Also known as Brewer’s theorem, the CAP theorem states that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees: Consistency, Availability, and Partition tolerance. In the context of PictureIt, the app prioritizes Availability and Partition Tolerance.
 
-![Alt text](sequenzdiagramm.jpg)
+- Crosscutting Concepts: These are concepts that apply across all the different sections of the PictureIt app. They include development concepts like coding conventions and error logs, architecture and design patterns like internationalization, and safety and security concepts like privacy.
 
-# Deployment View
+- Internationalization: This is the process of designing and preparing your app to be usable in different languages. This includes translating text and components and may also involve changes in layout or even functionality, depending on the region and language.
 
-**CAP Theorem**
+- AES 256bit encryption: AES stands for Advanced Encryption Standard, and 256 refers to the key size. In this case, it means that the key used in the encryption process is 256 bits in size. It is used to encrypt user data before being sent to the server for added security.
 
-**Consistency: This means that all nodes see the same data at the same time. In the context of PictureIt, consistency would mean that when a user posts a picture or makes a comment, all other users should be able to see that update immediately. However, due to the use of microservices and potential for multiple databases, there might be a risk of inconsistencies.**
+- Efficiency – Time behavior: This refers to the performance goal of the PictureIt app. Specifically, it refers to the speed at which a user can upload an image with an average internet connection.
 
-**Availability: This means that every request receives a response, without guarantee that it contains the most recent version of the information. PictureIt aims for 24/7 availability, which is a key requirement for any social media application.**
+- Functionality - Security: This refers to the security measures implemented in the PictureIt app. For example, user data is encrypted using at least AES 256bit encryption before being sent to the server.
 
-**Partition Tolerance: This means that the system continues to operate despite arbitrary partitioning due to network failures. Given that PictureIt is a global application, it must be able to handle network partitions effectively.**
+- Maintainability - Changeability: This refers to the ability of the PictureIt app to adapt to changes. For example, when there is an update to the third party Pixlr app, developers must implement and update PictureIt within 3 hours.
 
-**PictureIt prioritizes Availability (A) and Partition Tolerance (P). It’s more important that the service remains available and can handle network issues, even if it means some users might not see the most up-to-date data immediately.**
+- Quality Tree: A quality tree is a diagram that helps to visualize the quality goals of a project. It can help to identify and prioritize quality attributes.
 
-![Alt text](<DeploymentView (1).jpeg>)
+- Technical Debt: Technical debt is a concept in software development that reflects the implied cost of additional rework caused by choosing an easy solution now instead of using a better approach that would take longer.
+
+- Versioning: This refers to the practice of assigning unique version numbers to unique states of the software. In the context of microservices, versioning can be complex due to the number of services involved.
